@@ -9,7 +9,7 @@
 from pymongo import MongoClient
 
 # MongoDB connection string 
-url = "mongodb+srv://admin:admin@cluster0.mbmui.mongodb.net/pytech"
+url = "mongodb+srv://admin:admin@cluster0.mbmui.mongodb.net/pytech?retryWrites=true&w=majority"
 
 # connect to the MongoDB cluster 
 client = MongoClient(url)
