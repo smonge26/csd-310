@@ -1,5 +1,5 @@
 ''' 
-    Title: whatabook_inserts.py
+    Title: whatabook.py
     Author: Sigfredo Monge Villanueva
     Date: 26 September 2021
     Description: Program to interact with whatabook data base. 
