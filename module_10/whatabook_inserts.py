@@ -15,11 +15,12 @@ config ={
     "raise_on_warnings": True
 }
 
+
 try:
     db = mysql.connector.connect(**config) 
     
     cursor = db.cursor()
-    
+
     '''store info insert'''
     cursor.execute("INSERT INTO store (locale)VALUES('5701 Sunset Dr. Ste 196, Miami, FL 33143') ")
  
