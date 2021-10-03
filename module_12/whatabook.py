@@ -16,6 +16,7 @@ config = {
     "raise_on_warnings": True
 }
 
+'main menu function'
 def mainMenu():
 
     print("\n 1. Display Books\n 2. Display Store Locations\n 3. My Account\n 4. Quit\n")
@@ -31,7 +32,7 @@ def mainMenu():
         validChoice = int(choice)
         return validChoice
 
-
+'display booklist function'
 def displayBooks(_cursor):
 
     _cursor.execute("SELECT book_id, book_name, author, details FROM book")
@@ -40,7 +41,7 @@ def displayBooks(_cursor):
     for i in books:
         print(f" Book Name: {i[1]}\n Book Author: {i[2]}\n Book Details: {i[3]}\n")
 
-
+'location function'
 def displayLocations(_cursor):
 
     _cursor.execute("SELECT store_id, locale FROM store")
@@ -49,7 +50,7 @@ def displayLocations(_cursor):
     for i in stores:
         print(f" Location: {i[1]}\n")
 
-
+'user validation function'
 def validateUser():
 
     print("\n -- Account  --\n")
@@ -63,7 +64,7 @@ def validateUser():
         validUserID = int(userID)
         return userID
 
-
+'user acccount menu function'
 def displayAccountMenu():
 
     print("\n-- Account Menu --\n")
@@ -82,7 +83,7 @@ def displayAccountMenu():
         validAccountOption = int(accountOptions)
         return validAccountOption
 
-
+'display books that can be added to wishlist function'
 def displayBooksToAdd(_cursor, _user_id):
 
     availableBooks = ("SELECT book_id, book_name, author, details FROM book " +
@@ -91,16 +92,16 @@ def displayBooksToAdd(_cursor, _user_id):
     _cursor.execute(availableBooks)
     booksThatCanBeAdded = _cursor.fetchall()
 
-    print("\n -- BOOKS THAT CAN BE ADDED -- \n")
+    print("\n -- Books That Can Be Added -- \n")
     for i in booksThatCanBeAdded:
         print(f"\n Book ID: {i[0]}\n Book Name: {i[1]}\n")
     
-
+'function to add books to wishlist'
 def addBookToWishlist(_cursor, _user_id, _book_id):
 
     _cursor.execute("INSERT INTO wishlist(user_id, book_id) VALUES({}, {})".format(_user_id, addBookID))
 
-
+'function to display user wishlist'
 def displayWishlist(_cursor, _user_id):
 
     _cursor.execute("SELECT user.user_id, user.first_name, user.last_name, book.book_id, book.book_name, book.author " + 
