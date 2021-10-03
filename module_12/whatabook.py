@@ -149,7 +149,6 @@ try:
                     print("\nCome Back Soon!")
                     sys.exit()
                 accountOption = displayAccountMenu()
-            
         mainMenuSelection = mainMenu()
         if mainMenuSelection == 4:
             print("\nCome Back Soon!")
